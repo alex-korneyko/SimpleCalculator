@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
  * Created by Alex Korneyko on 05.07.2016 16:01.
  */
 @Configuration
-class AppConfig {
+class AppConfigSimpleCalculator {
 
     @Bean
     public Calculator calculator(UnaryOperationProvider unaryOperationProvider, BinaryOperationProvider binaryOperationProvider, Parser parser) {
