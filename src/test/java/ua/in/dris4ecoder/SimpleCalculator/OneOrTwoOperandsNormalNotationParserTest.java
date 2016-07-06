@@ -1,4 +1,4 @@
-package ua.in.dris4ecoder;
+package ua.in.dris4ecoder.SimpleCalculator;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -37,4 +37,11 @@ public class OneOrTwoOperandsNormalNotationParserTest {
         Assert.assertEquals("Test for operator", 'p', parser.getOperator());
     }
 
+    @Test
+    public void parse4() throws Exception {
+
+        parser.parse("25000050000 * 0.0002000001");
+        Assert.assertEquals("Test for operands", new ArrayList<>(Arrays.asList(2.500005E10, 2.000001E-4)), parser.getOperands());
+        Assert.assertEquals("Test for operator", '*', parser.getOperator());
+    }
 }

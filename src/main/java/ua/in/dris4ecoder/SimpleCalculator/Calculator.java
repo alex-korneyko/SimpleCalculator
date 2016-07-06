@@ -1,11 +1,11 @@
-package ua.in.dris4ecoder;
+package ua.in.dris4ecoder.SimpleCalculator;
 
 import java.util.List;
 
 /**
  * Created by Alex Korneyko on 04.07.2016 19:03.
  */
-class Calculator {
+public class Calculator {
 
     private Parser parser;
     private List<BinaryOperation> binaryOperationsSet;
@@ -23,7 +23,7 @@ class Calculator {
         this.parser = parser;
     }
 
-    double compute(String expression) {
+    public double compute(String expression) {
 
         boolean operatorFound = false;
         double result = 0;
@@ -52,12 +52,12 @@ class Calculator {
         return result;
     }
 
-    void addNewBinaryOperation(BinaryOperation binaryOperation) {
+    public void addNewBinaryOperation(BinaryOperation binaryOperation) {
 
         binaryOperationsSet.add(binaryOperation);
     }
 
-    void addNewUnaryOperation(UnaryOperation unaryOperation) {
+    public void addNewUnaryOperation(UnaryOperation unaryOperation) {
 
         unaryOperationsSet.add(unaryOperation);
     }

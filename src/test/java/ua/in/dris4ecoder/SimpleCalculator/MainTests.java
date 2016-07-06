@@ -1,6 +1,10 @@
-package ua.in.dris4ecoder;
+package ua.in.dris4ecoder.SimpleCalculator;
 
 import org.junit.Test;
+import ua.in.dris4ecoder.SimpleCalculator.BinaryOperation;
+import ua.in.dris4ecoder.SimpleCalculator.Calculator;
+import ua.in.dris4ecoder.SimpleCalculator.CalculatorFactory;
+import ua.in.dris4ecoder.SimpleCalculator.UnaryOperation;
 
 /**
  * Created by Alex Korneyko on 05.07.2016 20:32.
@@ -20,7 +24,7 @@ public class MainTests {
         System.out.println(calculator.compute("s20"));
     }
 
-    private class MultiOperation implements BinaryOperation{
+    private class MultiOperation implements BinaryOperation {
 
         @Override
         public double calculate(double operand1, double operand2) {
@@ -33,7 +37,7 @@ public class MainTests {
         }
     }
 
-    private class SquareOperation implements UnaryOperation{
+    private class SquareOperation implements UnaryOperation {
 
         @Override
         public double calculate(double operand1) {

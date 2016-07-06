@@ -1,4 +1,4 @@
-package ua.in.dris4ecoder;
+package ua.in.dris4ecoder.SimpleCalculator;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -6,9 +6,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Created by Alex Korneyko on 05.07.2016 17:21.
  */
-class CalculatorFactory {
+public class CalculatorFactory {
 
-    static Calculator getCalculator(){
+    public static Calculator getCalculator(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
 
         return applicationContext.getBean("calculator", Calculator.class);

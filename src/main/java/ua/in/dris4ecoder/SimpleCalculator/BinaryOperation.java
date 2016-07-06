@@ -1,9 +1,9 @@
-package ua.in.dris4ecoder;
+package ua.in.dris4ecoder.SimpleCalculator;
 
 /**
  * Created by Alex Korneyko on 04.07.2016 15:50.
  */
-interface BinaryOperation {
+public interface BinaryOperation {
 
     double calculate(double operand1, double operand2);
 

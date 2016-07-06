@@ -1,11 +1,11 @@
-package ua.in.dris4ecoder;
+package ua.in.dris4ecoder.SimpleCalculator;
 
 import java.util.List;
 
 /**
  * Created by Alex Korneyko on 05.07.2016 20:22.
  */
-public interface UnaryOperationProvider {
+interface UnaryOperationProvider {
 
     List<UnaryOperation> getUnaryOperations();
 

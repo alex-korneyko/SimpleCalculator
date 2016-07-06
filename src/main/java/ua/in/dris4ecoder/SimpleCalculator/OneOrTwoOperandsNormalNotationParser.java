@@ -1,4 +1,4 @@
-package ua.in.dris4ecoder;
+package ua.in.dris4ecoder.SimpleCalculator;
 
 import java.util.ArrayList;
 import java.util.List;

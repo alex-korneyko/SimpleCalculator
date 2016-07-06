@@ -1,4 +1,4 @@
-package ua.in.dris4ecoder;
+package ua.in.dris4ecoder.SimpleCalculator;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
  * Created by Alex Korneyko on 05.07.2016 16:01.
  */
 @Configuration
-public class AppConfig {
+class AppConfig {
 
     @Bean
     public Calculator calculator(UnaryOperationProvider unaryOperationProvider, BinaryOperationProvider binaryOperationProvider, Parser parser) {
