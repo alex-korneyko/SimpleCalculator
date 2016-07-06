@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * Spring java-based config file
  * Created by Alex Korneyko on 05.07.2016 16:01.
  */
 @Configuration
