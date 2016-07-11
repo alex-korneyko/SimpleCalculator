@@ -12,26 +12,24 @@ class OneOrTwoOperandsNormalNotationParser implements Parser {
     private char operator;
 
     @Override
-    public void parse(String expression) {
+    public void parse(String expression) throws NumberFormatException {
 
         operands = new ArrayList<>();
-        String number = "";
+        String[] splitExpression = expression.split(" ");
 
-        for (char exprElement : expression.toCharArray()) {
-            if (exprElement == ' ') continue;
+        for (String element : splitExpression) {
+            if(operands.size() == 2){
+                break;
+            }
 
-            if ((exprElement >= '0' && exprElement <= '9') || exprElement == '.') {
-                number += exprElement;
-            } else {
-                operator = exprElement;
-                if (!number.equals("")) {
-                    operands.add(Double.parseDouble(number));
-                }
-                number = "";
+            char firstChar = element.toCharArray()[0];
+
+            if (firstChar >= '0' && firstChar <= '9') {
+                operands.add(Double.parseDouble(element));
+            } else if (element.length() == 1) {
+                operator = element.charAt(0);
             }
         }
-
-        operands.add(Double.parseDouble(number));
     }
 
     @Override

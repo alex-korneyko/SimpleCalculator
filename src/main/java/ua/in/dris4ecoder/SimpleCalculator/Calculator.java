@@ -1,5 +1,6 @@
 package ua.in.dris4ecoder.SimpleCalculator;
 
+import java.util.IllegalFormatException;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public class Calculator {
         this.parser = parser;
     }
 
-    public double compute(String expression) {
+    public double compute(String expression) throws IllegalArgumentException {
 
         boolean operatorFound = false;
         double result = 0;
@@ -46,7 +47,7 @@ public class Calculator {
         }
 
         if (!operatorFound) {
-            System.out.println("Operator not found: '" + parser.getOperator() + "'");
+            throw new IllegalArgumentException("Operator not found: '" + parser.getOperator() + "'");
         }
 
         return result;

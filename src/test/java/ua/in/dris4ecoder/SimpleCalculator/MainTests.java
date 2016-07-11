@@ -12,16 +12,24 @@ import ua.in.dris4ecoder.SimpleCalculator.UnaryOperation;
 public class MainTests {
 
     @Test
-    public void calculatorTest1(){
+    public void calculatorTest1() {
         Calculator calculator = CalculatorFactory.getCalculator();
 
-        System.out.println(calculator.compute("2+3"));
-        System.out.println(calculator.compute("10*20"));
+        System.out.println(calculator.compute("2 + 3"));
+        try {
+            System.out.println(calculator.compute("10 * 20"));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
         calculator.addNewBinaryOperation(new MultiOperation());
-        System.out.println(calculator.compute("10*20"));
-        System.out.println(calculator.compute("s20"));
+        System.out.println(calculator.compute("10 * 20"));
+        try {
+            System.out.println(calculator.compute("s 20"));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
         calculator.addNewUnaryOperation(new SquareOperation());
-        System.out.println(calculator.compute("s20"));
+        System.out.println(calculator.compute("s 20"));
     }
 
     private class MultiOperation implements BinaryOperation {
