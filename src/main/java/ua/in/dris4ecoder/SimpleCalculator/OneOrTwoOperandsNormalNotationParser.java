@@ -25,11 +25,7 @@ class OneOrTwoOperandsNormalNotationParser implements Parser {
             } else {
                 operator = exprElement;
                 if (!number.equals("")) {
-                    try {
-                        operands.add(Double.parseDouble(number));
-                    } catch (NumberFormatException e) {
-                        System.out.println("Wrong notation");
-                    }
+                    operands.add(Double.parseDouble(number));
                 }
                 number = "";
             }

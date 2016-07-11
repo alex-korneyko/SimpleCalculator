@@ -8,7 +8,7 @@ import java.util.List;
  */
 class SimpleBinaryOperationProvider implements BinaryOperationProvider {
 
-    private List<BinaryOperation> binaryOperations;
+    private List<BinaryOperation> binaryOperations = new ArrayList<>();
 
     @Override
     public List<BinaryOperation> getBinaryOperations() {
@@ -17,11 +17,16 @@ class SimpleBinaryOperationProvider implements BinaryOperationProvider {
     }
 
     @Override
-    public void init() {
-        binaryOperations = new ArrayList<>();
+    public void addOperation(BinaryOperation binaryOperation) {
 
-        binaryOperations.add(new PlusOperation());
-        binaryOperations.add(new MinusOperation());
+        binaryOperations.add(binaryOperation);
+    }
+
+    @Override
+    public void init() {
+
+        addOperation(new PlusOperation());
+        addOperation(new MinusOperation());
 
     }
 }

@@ -9,5 +9,7 @@ interface BinaryOperationProvider {
 
     List<BinaryOperation> getBinaryOperations();
 
+    void addOperation(BinaryOperation binaryOperation);
+
     void init();
 }

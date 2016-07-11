@@ -17,6 +17,12 @@ class SimpleUnaryOperationProvider implements UnaryOperationProvider {
     }
 
     @Override
+    public void addOperation(UnaryOperation unaryOperation) {
+
+        unaryOperations.add(unaryOperation);
+    }
+
+    @Override
     public void init() {
         unaryOperations = new ArrayList<>();
     }

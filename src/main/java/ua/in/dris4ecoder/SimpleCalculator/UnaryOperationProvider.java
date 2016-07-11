@@ -9,5 +9,7 @@ interface UnaryOperationProvider {
 
     List<UnaryOperation> getUnaryOperations();
 
+    void addOperation(UnaryOperation unaryOperation);
+
     void init();
 }
