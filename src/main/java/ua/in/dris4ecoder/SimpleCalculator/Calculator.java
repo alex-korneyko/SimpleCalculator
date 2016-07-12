@@ -63,4 +63,9 @@ public class Calculator {
         unaryOperationsSet.add(unaryOperation);
     }
 
+    public void addNewValueParser(ValueParser valueParser) {
+
+        parser.addNewValueParser(valueParser);
+    }
+
 }

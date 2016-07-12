@@ -10,4 +10,6 @@ public interface ValueParser {
     String getString(double value);
 
     void setPrecision(int precision);
+
+    char dataTypeIdentitySymbol();
 }

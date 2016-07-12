@@ -48,4 +48,13 @@ public class OneOrTwoOperandsNormalNotationParserTest {
         Assert.assertEquals("Test for operands", new ArrayList<>(Arrays.asList(2.500005E10, 2.000001E-4)), parser.getOperands());
         Assert.assertEquals("Test for operator", '*', parser.getOperator());
     }
+
+    @Test
+    public void parse5() throws Exception {
+
+        parser.addNewValueParser(new DoubleValueParser());
+        parser.parse("#d25000050000 * #d0.0002000001");
+        Assert.assertEquals("Test for operands", new ArrayList<>(Arrays.asList(2.500005E10, 2.000001E-4)), parser.getOperands());
+        Assert.assertEquals("Test for operator", '*', parser.getOperator());
+    }
 }

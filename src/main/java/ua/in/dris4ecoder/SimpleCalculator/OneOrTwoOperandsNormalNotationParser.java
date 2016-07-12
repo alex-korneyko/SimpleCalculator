@@ -5,6 +5,9 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.zip.DataFormatException;
 
 /**
  * Created by Alex Korneyko on 04.07.2016 16:05.
@@ -35,15 +38,37 @@ class OneOrTwoOperandsNormalNotationParser implements Parser {
 
             char firstChar = element.toCharArray()[0];
 
-            if (firstChar >= '0' && firstChar <= '9') {
+            if ((firstChar >= '0' && firstChar <= '9') || firstChar == '#') {
                 double operand = 0;
 
-                for (ValueParser valueParser : valueParsers) {
+                if (firstChar == '#') {
+                    ValueParser valueParser = null;
+
+                    for (ValueParser parser : valueParsers) {
+                        if (parser.dataTypeIdentitySymbol() == element.charAt(1)) {
+                            valueParser = parser;
+                        }
+                    }
+
+                    if (valueParser == null) {
+                        throw new NumberFormatException("Data type not found: " + element.charAt(1));
+                    }
+
                     try {
-                        operand = valueParser.parse(element);
+                        operand = valueParser.parse(element.substring(2));
                         isParsed = true;
-                        break;
-                    } catch (NumberFormatException ignored) {}
+                    } catch (NumberFormatException ignored) {
+                    }
+
+                } else {
+                    for (ValueParser valueParser : valueParsers) {
+                        try {
+                            operand = valueParser.parse(element);
+                            isParsed = true;
+                            break;
+                        } catch (NumberFormatException ignored) {
+                        }
+                    }
                 }
 
                 if (isParsed) {
