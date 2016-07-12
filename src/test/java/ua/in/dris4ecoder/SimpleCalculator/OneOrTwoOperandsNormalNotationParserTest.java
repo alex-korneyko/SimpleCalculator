@@ -26,8 +26,8 @@ public class OneOrTwoOperandsNormalNotationParserTest {
     public void parse2() throws Exception {
 
         parser.addNewValueParser(new DoubleValueParser());
-        parser.parse("1254.545247 - 42242.80001");
-        Assert.assertEquals("Test for operands", new ArrayList<>(Arrays.asList(1254.545247, 42242.80001)), parser.getOperands());
+        parser.parse("-1254.545247 - 42242.80001");
+        Assert.assertEquals("Test for operands", new ArrayList<>(Arrays.asList(-1254.545247, 42242.80001)), parser.getOperands());
         Assert.assertEquals("Test for operator", '-', parser.getOperator());
     }
 
@@ -66,5 +66,15 @@ public class OneOrTwoOperandsNormalNotationParserTest {
         parser.parse("#b1010 * #d0.12");
         Assert.assertEquals("Test for operands", new ArrayList<>(Arrays.asList(10.0, 0.12)), parser.getOperands());
         Assert.assertEquals("Test for operator", '*', parser.getOperator());
+    }
+
+    @Test
+    public void parse7() throws Exception {
+
+        parser.addNewValueParser(new DoubleValueParser());
+        parser.addNewValueParser(new BinaryValueParser());
+        parser.parse("-12 - #d-3.123");
+        Assert.assertEquals("Test for operands", new ArrayList<>(Arrays.asList(-12.0, -3.123)), parser.getOperands());
+        Assert.assertEquals("Test for operator", '-', parser.getOperator());
     }
 }

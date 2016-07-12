@@ -31,7 +31,7 @@ class OneOrTwoOperandsNormalNotationParser implements Parser {
 
             char firstChar = element.toCharArray()[0];
 
-            if ((firstChar >= '0' && firstChar <= '9') || firstChar == '#') {
+            if ((firstChar >= '0' && firstChar <= '9') || firstChar == '#' || (firstChar == '-' && element.length() > 1)) {
                 double operand = 0;
 
                 if (firstChar == '#') {
@@ -67,7 +67,7 @@ class OneOrTwoOperandsNormalNotationParser implements Parser {
                 if (isParsed) {
                     operands.add(operand);
                 } else {
-                    throw new NullPointerException("Wrong value: " + element);
+                    throw new NumberFormatException("Wrong value: " + element);
                 }
 
 //                operands.add(Double.parseDouble(element));
