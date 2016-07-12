@@ -1,20 +1,13 @@
 package ua.in.dris4ecoder.SimpleCalculator;
 
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import java.util.zip.DataFormatException;
-
 /**
  * Created by Alex Korneyko on 04.07.2016 16:05.
  */
 class OneOrTwoOperandsNormalNotationParser implements Parser {
 
-    List<ValueParser> valueParsers = new ArrayList<>();
+    private List<ValueParser> valueParsers = new ArrayList<>();
     private List<Double> operands;
     private char operator;
 

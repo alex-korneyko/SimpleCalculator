@@ -1,6 +1,5 @@
 package ua.in.dris4ecoder.SimpleCalculator;
 
-import java.util.IllegalFormatException;
 import java.util.List;
 
 /**

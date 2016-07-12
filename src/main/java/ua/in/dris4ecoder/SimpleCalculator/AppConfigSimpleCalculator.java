@@ -43,6 +43,7 @@ class AppConfigSimpleCalculator {
 
         OneOrTwoOperandsNormalNotationParser oneOrTwoOperandsNormalNotationParser = new OneOrTwoOperandsNormalNotationParser();
         oneOrTwoOperandsNormalNotationParser.addNewValueParser(new DoubleValueParser());
+        oneOrTwoOperandsNormalNotationParser.addNewValueParser(new BinaryValueParser());
 
         return oneOrTwoOperandsNormalNotationParser;
     }
