@@ -7,6 +7,8 @@ import java.util.List;
  */
 public interface Parser {
 
+    void addNewValueParser(ValueParser valueParser);
+
     void parse(String expression);
 
     List<Double> getOperands();

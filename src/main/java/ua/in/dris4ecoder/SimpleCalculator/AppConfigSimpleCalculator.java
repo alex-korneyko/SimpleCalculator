@@ -41,6 +41,9 @@ class AppConfigSimpleCalculator {
     @Bean
     public Parser parser(){
 
-        return new OneOrTwoOperandsNormalNotationParser();
+        OneOrTwoOperandsNormalNotationParser oneOrTwoOperandsNormalNotationParser = new OneOrTwoOperandsNormalNotationParser();
+        oneOrTwoOperandsNormalNotationParser.addNewValueParser(new DoubleValueParser());
+
+        return oneOrTwoOperandsNormalNotationParser;
     }
 }
