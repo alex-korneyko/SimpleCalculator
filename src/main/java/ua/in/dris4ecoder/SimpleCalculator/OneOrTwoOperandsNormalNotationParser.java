@@ -8,6 +8,7 @@ import java.util.List;
 class OneOrTwoOperandsNormalNotationParser implements Parser {
 
     private List<ValueParser> valueParsers = new ArrayList<>();
+    private String parsedExpression;
     private List<Double> operands;
     private char operator;
 
@@ -18,8 +19,9 @@ class OneOrTwoOperandsNormalNotationParser implements Parser {
     }
 
     @Override
-    public void parse(String expression) throws NumberFormatException {
+    public boolean parse(String expression) throws NumberFormatException {
 
+        parsedExpression = expression;
         boolean isParsed = false;
         operands = new ArrayList<>();
         String[] splitExpression = expression.split(" ");
@@ -70,11 +72,17 @@ class OneOrTwoOperandsNormalNotationParser implements Parser {
                     throw new NumberFormatException("Wrong value: " + element);
                 }
 
-//                operands.add(Double.parseDouble(element));
             } else if (element.length() == 1) {
                 operator = element.charAt(0);
             }
         }
+
+        return true;
+    }
+
+    @Override
+    public String getParsedExpression() {
+        return parsedExpression;
     }
 
     @Override

@@ -22,7 +22,7 @@ class AppConfigSimpleCalculator {
     }
 
     @Bean
-    public UnaryOperationProvider unaryOperationProvider(){
+    public UnaryOperationProvider unaryOperationProvider() {
         SimpleUnaryOperationProvider simpleUnaryOperationProvider = new SimpleUnaryOperationProvider();
         simpleUnaryOperationProvider.init();
 
@@ -30,7 +30,7 @@ class AppConfigSimpleCalculator {
     }
 
     @Bean
-    public BinaryOperationProvider binaryOperationProvider(){
+    public BinaryOperationProvider binaryOperationProvider() {
 
         SimpleBinaryOperationProvider simpleBinaryOperationProvider = new SimpleBinaryOperationProvider();
         simpleBinaryOperationProvider.init();
@@ -39,12 +39,22 @@ class AppConfigSimpleCalculator {
     }
 
     @Bean
-    public Parser parser(){
+    public Parser parser() {
 
         OneOrTwoOperandsNormalNotationParser oneOrTwoOperandsNormalNotationParser = new OneOrTwoOperandsNormalNotationParser();
         oneOrTwoOperandsNormalNotationParser.addNewValueParser(new DoubleValueParser());
         oneOrTwoOperandsNormalNotationParser.addNewValueParser(new BinaryValueParser());
 
         return oneOrTwoOperandsNormalNotationParser;
+    }
+
+    @Bean
+    public OneOrTwoOperandsNormalNotationParser oneOrTwoOperandsNormalNotationParser() {
+        return new OneOrTwoOperandsNormalNotationParser();
+    }
+
+    @Bean
+    public LogAspect logAspect() {
+        return new LogAspect();
     }
 }

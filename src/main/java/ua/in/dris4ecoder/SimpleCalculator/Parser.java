@@ -9,7 +9,9 @@ public interface Parser {
 
     void addNewValueParser(ValueParser valueParser);
 
-    void parse(String expression);
+    boolean parse(String expression);
+
+    String getParsedExpression();
 
     List<Double> getOperands();
 
