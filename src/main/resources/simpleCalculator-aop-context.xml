@@ -5,9 +5,5 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-
-    <bean class="ua.in.dris4ecoder.SimpleCalculator.LogAspect" id="logAspect"/>
     <aop:aspectj-autoproxy proxy-target-class="true"/>
-
-
 </beans>

@@ -16,20 +16,30 @@ public class MainTests {
         Calculator calculator = CalculatorFactory.getCalculator();
 
         System.out.println(calculator.compute("2 + 3"));
+
         try {
             System.out.println(calculator.compute("10 * 20"));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+
         calculator.addNewBinaryOperation(new MultiOperation());
         System.out.println(calculator.compute("10 * 20"));
+
         try {
             System.out.println(calculator.compute("s 20"));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+
         calculator.addNewUnaryOperation(new SquareOperation());
         System.out.println(calculator.compute("s 20"));
+
+        try {
+            System.out.println(calculator.compute("asd + fds"));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private class MultiOperation implements BinaryOperation {

@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class CalculatorFactory {
 
     public static Calculator getCalculator(){
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml", "aop-context.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("simpleCalculator-context.xml", "simpleCalculator-aop-context.xml");
 
         return applicationContext.getBean("calculator", Calculator.class);
     }

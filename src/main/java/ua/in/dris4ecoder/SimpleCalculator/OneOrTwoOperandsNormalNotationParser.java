@@ -23,6 +23,7 @@ class OneOrTwoOperandsNormalNotationParser implements Parser {
 
         parsedExpression = expression;
         boolean isParsed = false;
+        operator = 0;
         operands = new ArrayList<>();
         String[] splitExpression = expression.split(" ");
 
@@ -74,6 +75,8 @@ class OneOrTwoOperandsNormalNotationParser implements Parser {
 
             } else if (element.length() == 1) {
                 operator = element.charAt(0);
+            } else {
+                throw new NumberFormatException("Wrong value: " + element);
             }
         }
 
